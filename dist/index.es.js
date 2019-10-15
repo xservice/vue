@@ -69,7 +69,7 @@ class VueFrameworkerRenderer {
         return target;
     }
     serviceRender(target, method, component) {
-        this.observe.active = target.get('target.use.name') || null;
+        this.observe.active = target ? target.get('target.use.name') || null : null;
         this.observe.component = Array.isArray(component) ? component : [component];
     }
 }

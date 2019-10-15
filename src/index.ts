@@ -84,7 +84,7 @@ export default class VueFrameworkerRenderer implements FrameworkerRenderer {
   }
 
   serviceRender(target: TargetMetadata, method: MethodMetadata, component: VNode | VNode[]) {
-    this.observe.active = target.get<string>('target.use.name') || null;
+    this.observe.active = target ? target.get<string>('target.use.name') || null : null;
     this.observe.component = Array.isArray(component) ? component : [component];
   }
 }
