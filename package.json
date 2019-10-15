@@ -1,6 +1,6 @@
 {
   "name": "@xservice/vue",
-  "version": "1.0.11",
+  "version": "1.0.0",
   "description": "Page monitor and page behavior operation architecture",
   "repository": {
     "type": "git",
