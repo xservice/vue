@@ -41,9 +41,6 @@ class VueFrameworkerRenderer {
                 }, childrens);
             }
         });
-        Vue.config.errorHandler = function (err, vm, info) {
-            console.warn(err, vm, info);
-        };
     }
     serviceMethodBinding(meta) {
     }

@@ -44,10 +44,6 @@ export default class VueFrameworkerRenderer implements FrameworkerRenderer {
         }, childrens);
       }
     });
-
-    Vue.config.errorHandler = function (err, vm, info) {
-      console.warn(err, vm, info)
-    }
   }
   
 
