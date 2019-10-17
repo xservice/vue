@@ -1,6 +1,6 @@
 {
   "name": "@xservice/vue",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Page monitor and page behavior operation architecture",
   "repository": {
     "type": "git",
@@ -27,16 +27,16 @@
   "types": "dist/index.d.ts",
   "devDependencies": {
     "html-webpack-plugin": "^3.2.0",
-    "rollup": "^1.23.1",
+    "rollup": "^1.24.0",
     "rollup-plugin-typescript2": "^0.21.2",
     "ts-loader": "^6.2.0",
     "typescript": "^3.6.4",
-    "webpack": "^4.41.1",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
   },
   "dependencies": {
-    "@xservice/core": "^1.0.5",
+    "@xservice/core": "^1.0.6",
     "vue": "^2.6.10"
   }
 }
