@@ -69,6 +69,16 @@ class VueFrameworkerRenderer {
         this.observe.active = target ? target.get('target.use.name') || null : null;
         this.observe.component = Array.isArray(component) ? component : [component];
     }
+    serviceContext(ctx) {
+        const ref = ctx.ref;
+        if (!Vue.prototype.$context) {
+            Object.defineProperty(Vue.prototype, '$context', {
+                get() {
+                    return ref.ctx;
+                }
+            });
+        }
+    }
 }
 
 export default VueFrameworkerRenderer;

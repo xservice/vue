@@ -1,6 +1,7 @@
 import Vue, { VNode } from 'vue';
 import { CombinedVueInstance } from 'vue/types/vue';
 import { FrameworkerRenderer, MethodMetadata, TargetMetadata } from '@xservice/core';
+import { Context } from '@xservice/server';
 
 type VueFrameworkerRendererObserveType = {
   active: string | null,
@@ -11,7 +12,7 @@ type VueFrameworkerRendererObserveType = {
 }
 
 export * from './decorate';
-export default class VueFrameworkerRenderer implements FrameworkerRenderer {
+export default class VueFrameworkerRenderer<T = {}> implements FrameworkerRenderer {
   private readonly element: HTMLElement;
   private readonly keepAliveContainerComponentName = 'VueKeepAliveContainerComponentWith';
   private readonly observe = Vue.observable<VueFrameworkerRendererObserveType>({
@@ -82,5 +83,16 @@ export default class VueFrameworkerRenderer implements FrameworkerRenderer {
   serviceRender(target: TargetMetadata, method: MethodMetadata, component: VNode | VNode[]) {
     this.observe.active = target ? target.get<string>('target.use.name') || null : null;
     this.observe.component = Array.isArray(component) ? component : [component];
+  }
+
+  serviceContext(ctx: Context & T) {
+    const ref = ctx.ref;
+    if (!Vue.prototype.$context) {
+      Object.defineProperty(Vue.prototype, '$context', {
+        get() {
+          return ref.ctx;
+        }
+      });
+    }
   }
 }
